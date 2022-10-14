@@ -1,0 +1,17 @@
+version: '3'
+services:
+  dvwa:
+    build: .
+    image: "plain-dvwa"
+    container_name: "dvwa"
+    ports:
+      - "80:80"
+  zap-ui:
+    image: owasp/zap2docker-stable
+    user: zap
+    container_name: "zap-ui"
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    command: "zap-webswing.sh"
+
